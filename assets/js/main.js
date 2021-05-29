@@ -96,20 +96,25 @@ window.onload = function(){
 		document.getElementById("btn-carrito").disabled = false;
 	});
 	function scrollCarrito(){
-		if(JSON.parse(localStorage.getItem("articulos")).length*102> vh*0.85){
-			document.getElementsByClassName("div-tabla")[0].style.overflowY="scroll";
+		if (JSON.parse(localStorage.getItem("articulos")) !==null){
+			if(JSON.parse(localStorage.getItem("articulos")).length*102> vh*0.85){
+				document.getElementsByClassName("div-tabla")[0].style.overflowY="scroll";
+			}
+			else {
+				document.getElementsByClassName("div-tabla")[0].style.overflowY="hidden";
+			}
 		}
-		else {
-			document.getElementsByClassName("div-tabla")[0].style.overflowY="hidden";
-		}
+	
 	}
 	function total(){
 		let local = JSON.parse(localStorage.getItem("articulos"))
-		for(let i=0; i<local.length; i++){
-			totalCarrito = totalCarrito + (local[i].cantidad * local[i].precio);
+		if (local !== null){
+			for(let i=0; i<local.length; i++){
+				totalCarrito = totalCarrito + (local[i].cantidad * local[i].precio);
+			}
+			document.querySelector("#total span").innerHTML=`${totalCarrito}`
+			totalCarrito = 0;
 		}
-		document.querySelector("#total span").innerHTML=`${totalCarrito}`
-		totalCarrito = 0;
 	}
 	function oscurecer(){
 		document.getElementById("toggle-menu").style.backgroundColor="rgba(0, 0, 0, 0.1)";
