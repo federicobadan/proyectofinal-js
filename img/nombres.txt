@@ -1,0 +1,9 @@
+mouse: MOUSE HYPERX PULSEFIRE CORE RGB HX-MC004B
+
+teclado: Teclado Gamer Xtrike-me Gk-979 Qwerty Blue Inglés
+
+placa de video:Placa de Video Evga RTX 3070 XC3 Ultra 8Gb
+
+placa de sonido: Placa de sonido Sound Blaster Audigy FX PCIe 5.1
+
+placa madre: Motherboard Gigabyte S1151 H310M M2

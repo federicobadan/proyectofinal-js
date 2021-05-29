@@ -1,0 +1,58 @@
+[
+    [
+        {"id":0, "nombre": "Mouse Hyperx Pulsefire Core rgb HX-MC004B", "precio":456, "imagen":"./img/mouse/mouse.png", "section": "inicio"},
+        {"id":1, "nombre": "Teclado Gamer Xtrike-me Gk-979 Qwerty Blue Inglés", "precio":1340, "imagen":"./img/teclado/teclado.png", "section": "inicio"},
+        {"id":2, "nombre": "Placa de Video Evga RTX 3070 XC3 Ultra 8Gb", "precio":76000, "imagen":"./img/placas-de-video/placa-de-video.png", "section": "inicio"},
+        {"id":3, "nombre": "Motherboard Gigabyte S1151 H310M M2", "precio":58000, "imagen": "./img/placas-madre/placa-madre.png", "section": "inicio"},
+        {"id":4, "nombre": "Placa de sonido Sound Blaster Audigy FX PCIe 5.1", "precio":20000, "imagen": "./img/placas-de-sonido/placa-de-sonido.png", "section": "inicio"}
+    ],
+    [
+        {"id":5, "nombre": "Gabinete Gamer Cooler Masterbox Q300l", "precio":9000, "imagen":"./img/gabinetes/gabinete.png", "section": "gabinetes"},
+        {"id":6, "nombre": "Gabinete Aureox ARX 320g", "precio":15000, "imagen":"./img/gabinetes/gabinete1.png", "section": "gabinetes"},
+        {"id":7, "nombre": "Gabinete ADATA Gamer XPG Invader", "precio":17400, "imagen":"./img/gabinetes/gabinete2.png", "section": "gabinetes"},
+        {"id":8, "nombre": "Gabinete Segotep Lux", "precio":13250, "imagen": "./img/gabinetes/gabinete3.png", "section": "gabinetes"},
+        {"id":9, "nombre": "Gabinete Gamer Pc Cooler Master H500p Mesh Argb Mexx 2", "precio":14200, "imagen": "./img/gabinetes/gabinete4.png", "section": "gabinetes"}
+    ],
+    [
+        {"id":10, "nombre": "Teclado Gamer Xtrike-me Gk-979 Qwerty Blue Inglés", "precio":1340, "imagen":"./img/teclado/teclado.png", "section": "teclados"},
+        {"id":11, "nombre": "Teclado Logitech G413 Mecanical Carbon", "precio":3500, "imagen":"./img/teclado/teclado1.png", "section": "teclados"},
+        {"id":12, "nombre": "Teclado Gamer Genius GX Scorpion K220", "precio":2100, "imagen":"./img/teclado/teclado2.png", "section": "teclados"},
+        {"id":13, "nombre": "Teclado Soul Gaming Key LED XK700", "precio":1500, "imagen": "./img/teclado/teclado3.png", "section": "teclados"},
+        {"id":14, "nombre": "Teclado Mecanico Gamer Redragon Diti Rgb K585rgb", "precio":5000, "imagen": "./img/teclado/teclado4.png", "section": "teclados"}
+    ],
+    [
+        {"id":15, "nombre": "Mouse Hyperx Pulsefire Core rgb HX-MC004B", "precio":456, "imagen":"./img/mouse/mouse.png", "section": "mouse"},
+        {"id":16, "nombre": "Mouse Coregamer DY-009955", "precio":500, "imagen":"./img/mouse/mouse1.png", "section": "mouse"},
+        {"id":17, "nombre": "Mouse Zowie Global EC1", "precio":1500, "imagen":"./img/mouse/mouse2.png", "section": "mouse"},
+        {"id":18, "nombre": "Mouse Genius X-G200 USB", "precio":1000, "imagen": "./img/mouse/mouse3.png", "section": "mouse"},
+        {"id":19, "nombre": "Mouse Aquila Air VSG", "precio":600, "imagen": "./img/mouse/mouse4.png", "section": "mouse"}
+    ],
+    [
+        {"id":20, "nombre": "Auriculares gamer Logitech G Series G332 black", "precio":30000, "imagen":"./img/auriculares/auriculares.png", "section": "auriculares"},
+        {"id":21, "nombre": "Auriculares Inalambricos Logitech G733", "precio":25000, "imagen":"./img/auriculares/auriculares1.png", "section": "auriculares"},
+        {"id":22, "nombre": "Auriculares Sennheiser Rs 175 Rf Wireless", "precio":167000, "imagen":"./img/auriculares/auriculares2.png", "section": "auriculares"},
+        {"id":23, "nombre": "Auriculares de referencia Sennheiser Hd 800 S", "precio":145000, "imagen": "./img/auriculares/auriculares3.png", "section": "auriculares"},
+        {"id":24, "nombre": "Auriculares Gamer Corsair Virtuoso Rgb Wireless Carbon", "precio":45000, "imagen": "./img/auriculares/auriculares4.png", "section": "auriculares"}
+    ],
+    [
+        {"id":25, "nombre": "Placa de Video Evga RTX 3070 XC3 Ultra 8Gb", "precio":76000, "imagen":"./img/placas-de-video/placa-de-video.png", "section": "placas-de-video"},
+        {"id":26, "nombre": "Placa de Video Nvidia Asus Tuf Gaming Geforce Gtx 16 Series", "precio":90000, "imagen":"./img/placas-de-video/placa-de-video1.png", "section": "placas-de-video"},
+        {"id":27, "nombre": "Placa de Video Amd Gigabyte Gaming Radeon Rx Rev.2.0 8gb", "precio":105000, "imagen":"./img/placas-de-video/placa-de-video2.png", "section": "placas-de-video"},
+        {"id":28, "nombre": "Placa de Video Asus Radeon ROG STRIX RX 5500XT 8GB", "precio":138000, "imagen": "./img/placas-de-video/placa-de-video3.png", "section": "placas-de-video"},
+        {"id":29, "nombre": "Placa de video MSI Geforce GT 710 2GB DDR5 2GB", "precio":117000, "imagen": "./img/placas-de-video/placa-de-video4.png", "section": "placas-de-video"}
+    ],
+    [
+        {"id":30, "nombre": "Placa de sonido Sound Blaster Audigy FX PCIe 5.1", "precio":20000, "imagen":"./img/placas-de-sonido/placa-de-sonido.png", "section": "placas-de-sonido"},
+        {"id":31, "nombre": "Placa de sonido Creative Sound Blaster Audigy Pcie Rx 7.1", "precio":17000, "imagen":"./img/placas-de-sonido/placa-de-sonido1.png", "section": "placas-de-sonido"},
+        {"id":32, "nombre": "Placa de sonido Asus Xonar Se 5.1", "precio":12000, "imagen":"./img/placas-de-sonido/placa-de-sonido2.png", "section": "placas-de-sonido"},
+        {"id":33, "nombre": "Placa de sonido Sound Blaster Z Pcie Gaming", "precio":15500, "imagen": "./img/placas-de-sonido/placa-de-sonido3.png", "section": "placas-de-sonido"},
+        {"id":34, "nombre": "Placa de Sonido Externa USB 7.1", "precio":800, "imagen": "./img/placas-de-sonido/placa-de-sonido4.png", "section": "placas-de-sonido"}
+    ],
+    [
+        {"id":35, "nombre": "Motherboard Gigabyte S1151 H310M M2", "precio":58000, "imagen":"./img/placas-madre/placa-madre.png", "section": "placas-madre"},
+        {"id":36, "nombre": "Motherboard Asus X570 Prime P", "precio":47000, "imagen":"./img/placas-madre/placa-madre1.png", "section": "placas-madre"},
+        {"id":37, "nombre": "Motherboard Msi B365m Pro vdh S1151 Ddr4", "precio":45000, "imagen":"./img/placas-madre/placa-madre2.png", "section": "placas-madre"},
+        {"id":38, "nombre": "Motherboard Asus Prime A320M K Am4 Ddr4 Usb 3", "precio":55000, "imagen": "./img/placas-madre/placa-madre3.png", "section": "placas-madre"},
+        {"id":39, "nombre": "Motherboard Gigabyte A520m Ds3h", "precio":35000, "imagen": "./img/placas-madre/placa-madre4.png", "section": "placas-madre"}
+    ]
+]

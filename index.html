@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="icon"   href="./img/logo.png" type="image/png" /> 
+    <title>Inicio</title>
+  </head>
+  <body>
+    <header class="main">
+      <img src="./img/logo.png" width="70px" alt="logo" id="logo">
+      <div class="icono">
+        <button class ="btn-carrito icon" id="btn-carrito"><i class="fa fa-shopping-cart"></i></button>
+      </div>
+    </header>
+    <section>
+      <div class="carrito-box" id="carrito-box">
+        <div>
+          <button id="cerrar-carrito">X</button>
+        </div>
+        <div class="div-tabla">
+          <table id="tabla-carrito">
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="botones-carrito">
+          <div id="btn-vaciar">
+            <button id="vaciar-carrito">Vaciar carrito</button>
+          </div>
+          <div id="div-total">
+            <p id="total">Total: $<span></span></p>
+          </div>
+        </div>
+      </div>
+      <main>
+        <div id ="main">
+          <button class="toggle-menu" id="toggle-menu">&#9776;</button>
+          <div class="menu" id="menu">
+            <div>
+              <button class="closebtn" id="closebtn">X</button>
+            </div>
+            <div class="contenedor-btn">
+              <button class="menu-btn" onclick="location.href='#section-inicio'" id="btn-inicio">Inicio</button>
+              <button class="menu-btn" onclick="location.href='#section-gabinetes'" id="btn-gabinetes">Gabinetes</button>
+              <button class="menu-btn" onclick="location.href='#section-teclados'" id="btn-teclados">Teclados</button>
+              <button class="menu-btn" onclick="location.href='#section-mouse'" id="btn-mouse">Mouse</button>
+              <button class="menu-btn" onclick="location.href='#section-auriculares'" id="btn-auriculares">Auriculares</button>
+              <button class="menu-btn" onclick="location.href='#section-placas-de-video'" id="btn-pVideo">Placas de video</button>
+              <button class="menu-btn" onclick="location.href='#section-placas-de-sonido'" id="btn-PSonido">Placas de sonido</button>
+              <button class="menu-btn" onclick="location.href='#section-placas-madre'" id="btn-pMadre">Placas madre</button>
+              <button class="menu-btn" onclick="location.href='#footer'" id="btn-footer">Contacto</button>
+            </div>
+          </div>
+          <div id="contenedor-producto">
+            <div id="section-inicio">
+              <div class="div-titulos">
+                <h1>Inicio</h1>
+              </div>
+              <section class ="contenedor-producto" id="inicio">
+              
+              </section>
+            </div>
+            <div id="section-gabinetes">
+              <div class="div-titulos">
+                <h1>Gabinetes</h1>
+              </div>
+              <section class ="contenedor-producto" id="gabinetes">
+
+              </section>
+            </div>
+            <div id="section-teclados">
+              <div class="div-titulos">
+                <h1>Teclados</h1>
+              </div>
+              <section class ="contenedor-producto" id="teclados">
+
+              </section>
+            </div>
+            <div id="section-mouse">
+              <div class="div-titulos">
+                <h1>Mouse</h1>
+              </div>
+              <section class ="contenedor-producto" id="mouse">
+
+              </section>
+            </div>
+            <div id="section-auriculares">
+              <div class="div-titulos">
+                <h1>Auriculares</h1>
+              </div>
+              <section class ="contenedor-producto" id="auriculares">
+
+              </section>
+            </div>
+            <div id="section-placas-de-video">
+              <div class="div-titulos">
+                <h1>Placas de video</h1>
+              </div>
+              <section class ="contenedor-producto" id="placas-de-video">
+
+              </section>
+            </div>
+            <div id="section-placas-de-sonido">
+              <div class="div-titulos">
+                <h1>Placas de sonido</h1>
+              </div>
+              <section class ="contenedor-producto" id="placas-de-sonido">
+
+              </section>
+            </div>
+            <div id="section-placas-madre">
+              <div class="div-titulos">
+                <h1>Motherboards</h1>
+              </div>
+              <section class ="contenedor-producto" id="placas-madre">
+
+              </section>
+            </div>
+          </div>
+        </div>
+        <footer id="footer">
+          <div class="footer">
+            <form action="" method="post">
+              <input type="text" placeholder="Nombre" required>
+              <input type="email" placeholder="E-mail" required>
+              <input type="text" placeholder="Teléfono" required>
+              <textarea placeholder="Mensaje" required></textarea>
+              <input type="submit" value="Enviar">
+            </form>
+          </div>
+        </footer>
+      </main>
+    </section>
+
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  </body>
+</html>
