@@ -81,19 +81,37 @@ window.onload = function(){
 
 
 	$("#toggle-menu").click(function(){
-		$("#menu").animate({
+		if(screen.width<800){
+			$("#menu").animate({
+				width:"100%", margin:"0", minWidth:"220px"
+			}, 600);
+			$("#toggle-menu").animate({width:"0", margin:"50px 0 0 -200px"});
+			document.getElementById("btn-carrito").disabled = true;
+		}
+		else {
+			$("#menu").animate({
 			width:"20vw", margin:"0", minWidth:"220px"
-		}, 600);
-		$("#toggle-menu").animate({width:"0", margin:"50px 0 0 -200px"});
-		document.getElementById("btn-carrito").disabled = true;
+			}, 600);
+			$("#toggle-menu").animate({width:"0", margin:"50px 0 0 -200px"});
+			document.getElementById("btn-carrito").disabled = true;
+		}
 	});
 
 	$("#closebtn").click(function(){
-		$("#menu").animate({
+		if(screen.width<800){
+			$("#menu").animate({
+				width:"0", margin:"0 0 0 -1000px", overflow:"scroll"
+			}, 600);
+			$("#toggle-menu").animate({width:"150px", margin:"50px 0 0 0"});
+			document.getElementById("btn-carrito").disabled = false;
+		}
+		else {
+			$("#menu").animate({
 			width:"0", margin:"0 0 0 -500px"
-		}, 600);
-		$("#toggle-menu").animate({width:"50px", margin:"50px 0 0 0"});
-		document.getElementById("btn-carrito").disabled = false;
+			}, 600);
+			$("#toggle-menu").animate({width:"50px", margin:"50px 0 0 0"});
+			document.getElementById("btn-carrito").disabled = false;
+		}
 	});
 	function scrollCarrito(){
 		if (JSON.parse(localStorage.getItem("articulos")) !==null){
@@ -138,8 +156,7 @@ window.onload = function(){
 		document.querySelector("body").style.backgroundColor="#ffffff";
 		document.querySelector("header").style.background="rgb(50,93,189)";
 		document.querySelector("header").style.background="linear-gradient(90deg, rgba(50,93,189,1) 52%, rgba(55,59,68,1) 100%)";
-		document.querySelector("#btn-carrito").style.background="rgb(52,78,134)";
-		document.querySelector("#btn-carrito").style.background="linear-gradient(90deg, rgba(52,78,134,1) 0%, rgba(53,74,120,1) 100%)";
+		document.querySelector("#btn-carrito").style.background="none";
 		document.querySelector("#logo").style.opacity="100%"
 		document.getElementsByClassName("footer")[0].style.background="rgb(50,93,189)";
 		document.getElementsByClassName("footer")[0].style.background="linear-gradient(180deg, rgba(50,93,189,1) 0%, rgba(59,80,117,1) 57%)";
@@ -324,7 +341,7 @@ window.onload = function(){
 				const row = document.createElement('tr');
 				row.innerHTML = `
 					<td>
-						<img src="${imagen}" width=100 style="padding: 10px;-moz-user-select: none;-webkit-user-select: none;-ms-user-select: none;user-select: none;">
+						<img src="${imagen}" id="img-carrito">
 					</td>
 					<td class="tabla-estilo">
 						<p>${nombre}</p>
@@ -378,6 +395,9 @@ window.onload = function(){
 		}
 	}
 	function comprobarStorage (){
+		if (screen.width < 1000){
+			document.getElementsByClassName("div-tabla")[0].style.overflowX="hidden";
+		}
 		if (JSON.parse(localStorage.getItem('articulos')) === null){
 			document.getElementsByClassName("div-tabla")[0].style.overflowY="hidden";
 			document.getElementsByClassName("div-tabla")[0].style.minHeight="0";
@@ -385,7 +405,7 @@ window.onload = function(){
 			vaciarHTML();
 			const carritoVacio = document.createElement("div")
 			carritoVacio.innerHTML = `
-				<img id="exclamation-image" width="200px" height="200px" src="./img/exclamation-mark.png">
+				<img id="exclamation-image" src="./img/exclamation-mark.png">
 				<p id="exclamation-text">Tu carrito está vacio</p>
 				`
 			carritoBox.appendChild(carritoVacio);
@@ -398,15 +418,18 @@ window.onload = function(){
 			vaciarHTML();
 			const carritoVacio = document.createElement("div")
 			carritoVacio.innerHTML = `
-				<img id="exclamation-image" width="200px" height="200px" src="./img/exclamation-mark.png">
+				<img id="exclamation-image" src="./img/exclamation-mark.png">
 				<p id="exclamation-text">Tu carrito está vacio</p>
 				`
 			carritoBox.appendChild(carritoVacio);
 			carritoVacio.setAttribute("class", "carrito-vacio")
 		}
 		else{
+			if (screen.width < 1000) {
+				document.getElementsByClassName("div-tabla")[0].style.overflowX="scroll";
+			}
 			document.getElementsByClassName("div-tabla")[0].style.overflowY="scroll";
-			document.getElementsByClassName("div-tabla")[0].style.minHeight="85vh";
+			document.getElementsByClassName("div-tabla")[0].style.minHeight="60vh";
 			document.querySelector("#div-total").style.display="block"
 			vaciarHTML();
 			agregarCarritoHTML();

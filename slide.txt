@@ -1,3 +1,0 @@
-slide de costado => 
-https://www.tutorialrepublic.com/faq/how-to-create-jquery-slide-left-and-right-toggle-effect.php
-
