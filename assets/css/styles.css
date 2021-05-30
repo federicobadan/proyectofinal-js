@@ -403,7 +403,7 @@
     display: flex;
     justify-content: center; } }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 1000px) {
   #contenedor-producto {
     grid-column: 2; }
   .btn-class {
