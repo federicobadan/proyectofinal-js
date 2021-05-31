@@ -5,6 +5,7 @@ const img = document.getElementsByClassName("imagen-producto")
 const contenedoresScroll = document.getElementsByClassName("contenedor-producto")
 const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 let nombre ;
+let error ;
 let totalElements ;
 let totalCarrito = 0;
 let articulos = [];
@@ -14,26 +15,80 @@ let articuloNombre ;
 
 
 const productoJSON = "data/productos.json";
-$.getJSON(productoJSON, function (respuesta, estado) {
-	if(estado === "success"){
-		for(let i=0; i<respuesta.length; i++){
-			let misDatos = respuesta[i];
-				for (let dato of misDatos) {
-					$(`#${dato.section}`).append(`
-					<div class="producto" data-id="${dato.id}">
-					<img src=${dato.imagen} class="imagen-producto" alt="">
-					<div class = "producto-info">
-						<p>${dato.nombre}</p>
-						<div class="flex-producto">
-							<button class="btn-class agregar-carrito">Agregar al carrito</button>
-							<p class ="alinear-final">$<span>${dato.precio}</span></p>
+$.ajax({
+	url: productoJSON
+  }).done( function( jqXHR, textStatus, errorThrown ) {
+	$.getJSON(productoJSON, function (respuesta, textStatus) {
+		if(textStatus === "success"){
+			for(let i=0; i<respuesta.length; i++){
+				let misDatos = respuesta[i];
+					for (let dato of misDatos) {
+						$(`#${dato.section}`).append(`
+						<div class="producto" data-id="${dato.id}">
+						<img src=${dato.imagen} class="imagen-producto" alt="">
+						<div class = "producto-info">
+							<p>${dato.nombre}</p>
+							<div class="flex-producto">
+								<button class="btn-class agregar-carrito">Agregar al carrito</button>
+								<p class ="alinear-final">$<span>${dato.precio}</span></p>
+							</div>
 						</div>
-					</div>
-					</div>`)
-				} 
-		}	
+						</div>`)
+					} 
+			}	
+		}
+	});
+
+  });
+
+$.ajax({
+	url: productoJSON
+  }).fail( function( jqXHR, textStatus, errorThrown ) {
+	switch(jqXHR.status){
+
+		case 0:
+			$('#cargar').remove();
+			error = "<div class='error'> <img class='error-image' src='./img/error1.png' alt='imagen de error'> <p class='error-text'>Verifique su conexión a internet</p> <a class='error-button' href='index.html'>Volver al inicio</a> </div>"
+			$(`${error}`).insertAfter('header')
+			break;
+
+		case 404:
+			$('#cargar').remove();
+			error = "<div class='error'> <img class='error-image' src='./img/error1.png' alt='imagen de error'> <p class='error-text'>No se encuentra </p> <p class='error-text'>disponible la página</p> <a class='error-button' href='index.html'>Volver al inicio</a> </div>"
+			$(`${error}`).insertAfter('header')
+			break;
+
+		case 500:
+			$('#cargar').remove();
+			error = "<div class='error'> <img class='error-image' src='./img/error1.png' alt='imagen de error'> <p class='error-text'>Error interneto del servidor</p> <a class='error-button' href='index.html'>Volver al inicio</a> </div>"
+			$(`${error}`).insertAfter('header')
+			break;
+
+		case 'parseerror':
+			$('#cargar').remove();
+			error = "<div class='error'> <img class='error-image' src='./img/error1.png' alt='imagen de error'> <p class='error-text'>Fallo intentando convertir la información de JSON</p> <a class='error-button' href='index.html'>Volver al inicio</a> </div>"
+			$(`${error}`).insertAfter('header')
+			break;
+
+		case 'timeout':
+			$('#cargar').remove();
+			error = "<div class='error'> <img class='error-image' src='./img/error1.png' alt='imagen de error'> <p class='error-text'>Timeout error</p> <a class='error-button' href='index.html'>Volver al inicio</a> </div>"
+			$(`${error}`).insertAfter('header')
+			break;
+
+		case 'abort':
+			$('#cargar').remove();
+			error = "<div class='error'> <img class='error-image' src='./img/error1.png' alt='imagen de error'> <p class='error-text'>Pedido de AJAX abortado</p> <a class='error-button' href='index.html'>Volver al inicio</a> </div>"
+			$(`${error}`).insertAfter('header')
+			break;
+		
+		default:
+			alert('Uncaught Error: ' + jqXHR.responseText);
+			break;
+
 	}
-});
+
+ });
 
 
 
@@ -50,12 +105,12 @@ window.onload = function(){
 		comprobarStorage();
 		btnVaciar();
 		evitarClick();
-		scrollCarrito();
 		$("#total").show();
 		$('#cerrar-carrito').show();
 		$(".carrito-box").animate({
             width: "toggle",
         }, 600);
+		console.log(document.querySelector(".div-tabla").offsetHeight)
     });
 
 	$('#cerrar-carrito').click(function(){
@@ -115,11 +170,21 @@ window.onload = function(){
 	});
 	function scrollCarrito(){
 		if (JSON.parse(localStorage.getItem("articulos")) !==null){
-			if(JSON.parse(localStorage.getItem("articulos")).length*102> vh*0.85){
+			if (screen.width > 1000){
+				if(JSON.parse(localStorage.getItem("articulos")).length*102> vh*0.85){
 				document.getElementsByClassName("div-tabla")[0].style.overflowY="scroll";
+				}
+				else {
+					document.getElementsByClassName("div-tabla")[0].style.overflowY="hidden";
+				}			
 			}
 			else {
-				document.getElementsByClassName("div-tabla")[0].style.overflowY="hidden";
+				if(JSON.parse(localStorage.getItem("articulos")).length*362> vh*0.6){
+					document.getElementsByClassName("div-tabla")[0].style.overflowY="scroll";
+				}
+				else {
+					document.getElementsByClassName("div-tabla")[0].style.overflowY="hidden";
+				}
 			}
 		}
 	
@@ -264,6 +329,7 @@ window.onload = function(){
 			scrollCarrito();
 		}
 		total();
+		scrollCarrito();
 	});	
 
 	for(let i=0; i<agregarCarrito.length; i++){
@@ -395,11 +461,12 @@ window.onload = function(){
 		}
 	}
 	function comprobarStorage (){
-		if (screen.width < 1000){
+		if (screen.width > 1000){
 			document.getElementsByClassName("div-tabla")[0].style.overflowX="hidden";
 		}
 		if (JSON.parse(localStorage.getItem('articulos')) === null){
 			document.getElementsByClassName("div-tabla")[0].style.overflowY="hidden";
+			document.getElementsByClassName("div-tabla")[0].style.overflowX="hidden";
 			document.getElementsByClassName("div-tabla")[0].style.minHeight="0";
 			document.querySelector("#div-total").style.display="none"
 			vaciarHTML();
@@ -413,6 +480,7 @@ window.onload = function(){
 		}
 		else if(JSON.parse(localStorage.getItem('articulos')).length == false){ //un array vacio devuelve el booleano false
 			document.getElementsByClassName("div-tabla")[0].style.overflowY="hidden";
+			document.getElementsByClassName("div-tabla")[0].style.overflowX="hidden";
 			document.getElementsByClassName("div-tabla")[0].style.minHeight="0";
 			document.querySelector("#div-total").style.display="none"
 			vaciarHTML();
@@ -425,14 +493,15 @@ window.onload = function(){
 			carritoVacio.setAttribute("class", "carrito-vacio")
 		}
 		else{
-			if (screen.width < 1000) {
-				document.getElementsByClassName("div-tabla")[0].style.overflowX="scroll";
-			}
 			document.getElementsByClassName("div-tabla")[0].style.overflowY="scroll";
-			document.getElementsByClassName("div-tabla")[0].style.minHeight="60vh";
+			document.getElementsByClassName("div-tabla")[0].style.minHeight="85vh";
 			document.querySelector("#div-total").style.display="block"
+			if (screen.width < 1000) {
+				document.getElementsByClassName("div-tabla")[0].style.minHeight="70vh";
+			}
 			vaciarHTML();
 			agregarCarritoHTML();
+			scrollCarrito();
 		}
 	}
 	function evitarClick (){

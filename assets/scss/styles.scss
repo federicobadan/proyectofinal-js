@@ -6,7 +6,33 @@
     p {
         margin: 0;
     }
-    
+    .error {
+        width: 80vw;
+        margin:50px auto 50px auto;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .error-text{
+            font-size:3em;
+            width: 70%;
+            margin:auto;
+            text-align: center;
+        }
+        .error-image {
+            width: 300px;
+            height: 300px;
+        }
+        .error-button, .error-button:hover {
+            text-decoration: none;
+            text-align: center;
+            font-size:2em;
+            color:white;
+            width: 250px;
+            background-color: #24407e;
+            border-radius: 10px;
+        }
+    }
     .flex-column {
         display:flex;
         flex-direction: column;
@@ -42,7 +68,6 @@
         justify-content: space-around;
         background: rgb(50,93,189);
         background: linear-gradient(90deg, rgba(50,93,189,1) 52%, rgba(55,59,68,1) 100%);
-        font-size: 1.5rem;
         color: #fff;
         text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
         position:sticky;
@@ -170,7 +195,7 @@
         z-index:120;
         text-align: center;
         color: white;
-        font-size: 20px;
+        font-size: 4em;
         width: 90%;
         padding: 10px 0 10px 0;
         border-radius: 20px;
@@ -291,7 +316,7 @@
                 margin-top: 20px;
                 width: 100%;
                 letter-spacing: 3px;
-                font-size: 6em;
+                font-size: 5em;
                 color: #d3d3d3;
                 background-color:rgba(0, 0, 0, 0.3);
             }
@@ -434,8 +459,8 @@
           color:#d3d3d3;
       }
     .div-tabla{
-        min-height: 60vh;
-        max-height: 60vh;
+        min-height: 70vh;
+        max-height: 70vh;
         overflow: scroll;
     }
     .botones-carrito{
@@ -549,6 +574,7 @@
     }
     
     .producto-existente {
+        font-size: 20px;
         width: 420px;
     }
     .img-animacion{
