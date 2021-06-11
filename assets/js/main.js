@@ -1,5 +1,4 @@
 const carritoBox = document.querySelector('#carrito-box');
-const agregarCarrito = document.getElementsByClassName('agregar-carrito');
 const divCarrito = document.querySelector('#tabla-carrito tbody');
 const img = document.getElementsByClassName("imagen-producto")
 const contenedoresScroll = document.getElementsByClassName("contenedor-producto")
@@ -95,6 +94,7 @@ $.ajax({
 
 
 window.onload = function(){
+	const agregarCarrito = document.getElementsByClassName('agregar-carrito');
 	evitarClick();
 
     $(".btn-carrito").click(function(){
