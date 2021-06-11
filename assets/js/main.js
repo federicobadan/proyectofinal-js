@@ -334,6 +334,7 @@ window.onload = function(){
 	});	
 
 	for(let i=0; i<agregarCarrito.length; i++){
+		console.log("asd")
 		agregarCarrito[i].addEventListener("click",function(e){
 			let articulo = { 
 				imagen: e.target.parentElement.parentElement.parentElement.children[0].src,
