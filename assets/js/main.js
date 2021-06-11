@@ -12,6 +12,7 @@ let articulos = [];
 let localArticulos= [];
 let articuloId ;
 let articuloNombre ;
+localStorage.setItem('articulos',JSON.stringify(articulos));
 
 
 const productoJSON = "data/productos.json";
@@ -341,45 +342,37 @@ window.onload = function(){
 				precio:e.target.parentElement.children[1].children[0].textContent,
 				cantidad:1
 			};
-			if(JSON.parse(localStorage.getItem('articulos')) === null){ 
-				articulos.push(articulo); 
-				localStorage.setItem("articulos",JSON.stringify(articulos));
+			if (JSON.parse(localStorage.getItem("articulos")).some(element => element.nombre == articulo.nombre) === false || JSON.parse(localStorage.getItem("articulos")).length === 0){
+				productoAgregado();
+				localArticulos = JSON.parse(localStorage.getItem("articulos"));
+				localArticulos.map(data=>{ 
+					if(articulo.id !== data.id){
+						articulos.push(data);
+					}
+					else {
+						articulo.cantidad = data.cantidad;
+					}
+				});
+				articulos.push(articulo);
+				localStorage.setItem('articulos',JSON.stringify(articulos));
 				articulos = [];
-				productoAgregado()
+				localArticulos = [];
 			}
-			else {
-				if (JSON.parse(localStorage.getItem("articulos")).some(element => element.nombre == articulo.nombre) === false || JSON.parse(localStorage.getItem("articulos")).length === 0){
-					productoAgregado();
-					localArticulos = JSON.parse(localStorage.getItem("articulos"));
-					localArticulos.map(data=>{ 
-						if(articulo.id !== data.id){
-							articulos.push(data);
-						}
-						else {
-							articulo.cantidad = data.cantidad;
-						}
-					});
-					articulos.push(articulo);
-					localStorage.setItem('articulos',JSON.stringify(articulos));
-					articulos = [];
-					localArticulos = [];
-				}
-				else{
-					localArticulos = JSON.parse(localStorage.getItem("articulos"));
-					localArticulos.map(data=>{ 
-						if(articulo.id !== data.id){
-							articulos.push(data);
-						}
-						else {
-							articulo.cantidad = data.cantidad;
-							productoExistente();
-						}
-					});
-					articulos.push(articulo);
-					localStorage.setItem('articulos',JSON.stringify(articulos));
-					articulos = [];
-					localArticulos = [];
-				}
+			else{
+				localArticulos = JSON.parse(localStorage.getItem("articulos"));
+				localArticulos.map(data=>{ 
+					if(articulo.id !== data.id){
+						articulos.push(data);
+					}
+					else {
+						articulo.cantidad = data.cantidad;
+						productoExistente();
+					}
+				});
+				articulos.push(articulo);
+				localStorage.setItem('articulos',JSON.stringify(articulos));
+				articulos = [];
+				localArticulos = [];
 			}
 			vaciarHTML();
 			agregarCarritoHTML();
